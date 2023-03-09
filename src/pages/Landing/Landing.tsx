@@ -1,4 +1,4 @@
-import { Grid, TextField, FormControlLabel, Checkbox, Typography, Card, CardContent } from "@mui/material";
+import { Grid, TextField, FormControlLabel, Checkbox, Typography, Card, CardContent, Chip, Box } from "@mui/material";
 import React, { useState, useEffect } from "react";
 
 export interface Project {
@@ -39,7 +39,25 @@ const Landing: React.FC<LandingProps> = ({ projects }) => {
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
+    let searchTerms = event.target.value.toLowerCase().split(" ").filter((term) => term !== "");
+    let filtered = projects.filter((project) => {
+      const searchTextMatch =
+        searchTerms.length === 0 ||
+        searchTerms.every((term) =>
+          project.name.toLowerCase().includes(term) ||
+          project.policies.some((policy) => policy.toLowerCase().includes(term)) ||
+          project.sdgs.some((sdg) => sdg.toLowerCase().includes(term))
+        );
+      const selectedPoliciesMatch =
+        selectedPolicies.length === 0 ||
+        selectedPolicies.some((policy) => project.policies.includes(policy));
+      const selectedSdgsMatch =
+        selectedSdgs.length === 0 || selectedSdgs.some((sdg) => project.sdgs.includes(sdg));
+      return searchTextMatch && selectedPoliciesMatch && selectedSdgsMatch;
+    });
+    setFilteredProjects(filtered);
   };
+  
 
   const handlePolicyChange = (policy: string) => {
     let updatedPolicies = [...selectedPolicies];
@@ -75,7 +93,7 @@ const Landing: React.FC<LandingProps> = ({ projects }) => {
         </Grid>
         <Grid item xs={6}>
           <h3>Mayor Policies</h3>
-          {["Policy 1", "Policy 2", "Policy 3"].map((policy) => (
+          {["Water Conservation", "Policy 2", "Policy 3"].map((policy) => (
             <div key={policy}>
               <FormControlLabel
                 control={
@@ -116,15 +134,19 @@ const Landing: React.FC<LandingProps> = ({ projects }) => {
                   <Typography variant="h5" component="h2">
                     {project.name}
                   </Typography>
-                  <Typography color="textSecondary">
-                    {project.policies.join(", ")}
-                  </Typography>
-                  <Typography color="textSecondary">
-                    {project.sdgs.join(", ")}
-                  </Typography>
                   <Typography variant="body2" component="p">
                     {project.description}
                   </Typography>
+                  <Box>
+                    {project.policies.map((policy) => (
+                      <Chip key={policy} label={policy} style={{ marginRight: 5, marginBottom: 5 }} />
+                    ))}
+                  </Box>
+                  <Box>
+                    {project.sdgs.map((sdg) => (
+                      <Chip key={sdg} label={sdg} style={{ marginRight: 5, marginBottom: 5 }} />
+                    ))}
+                  </Box>
                 </CardContent>
               </Card>
             ))
@@ -133,6 +155,7 @@ const Landing: React.FC<LandingProps> = ({ projects }) => {
       </Grid>
     </div>
   );
+  
 };
 
 export default Landing;
