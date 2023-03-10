@@ -1,4 +1,7 @@
-import Landing, { LandingProps, Project } from './pages/Landing/Landing'
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import theme from './common/theme/theme';
+import Landing, { Project } from './pages/Landing/Landing'
+import { Auth0Provider } from "@auth0/auth0-react";
 
 function App() {
   const projects: Project[] = [
@@ -26,9 +29,18 @@ function App() {
   ];
  
   return (
-    <div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Auth0Provider
+        domain={process.env.REACT_APP_AUTH0_DOMAIN ?? ''}
+        clientId={process.env.REACT_APP_AUTH0_CLIENT_ID ?? ''}
+        authorizationParams={{
+          redirect_uri: window.location.origin
+        }}
+      >
       <Landing projects={projects} />
-    </div>
+      </Auth0Provider>
+    </ThemeProvider>
   )
 }
 

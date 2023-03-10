@@ -1,5 +1,6 @@
 import { Grid, TextField, FormControlLabel, Checkbox, Typography, Card, CardContent, Chip, Box } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import Menu from "../../common/components/Menu";
 
 export interface Project {
   id: number;
@@ -81,6 +82,7 @@ const Landing: React.FC<LandingProps> = ({ projects }) => {
 
   return (
     <div>
+      <Menu />
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextField
@@ -89,10 +91,20 @@ const Landing: React.FC<LandingProps> = ({ projects }) => {
             variant="outlined"
             value={searchText}
             onChange={handleSearch}
+            InputProps={{
+              style: {
+                backgroundColor: "#F4F4F4",
+                borderRadius: 4,
+                paddingLeft: 10,
+                paddingRight: 10,
+              },
+            }}
           />
         </Grid>
         <Grid item xs={6}>
-          <h3>Mayor Policies</h3>
+          <Typography variant="h6" component="h3" sx={{ color: "#008000", fontWeight: "bold", marginTop: 2 }}>
+            Mayor Policies
+          </Typography>
           {["Water Conservation", "Policy 2", "Policy 3"].map((policy) => (
             <div key={policy}>
               <FormControlLabel
@@ -102,13 +114,15 @@ const Landing: React.FC<LandingProps> = ({ projects }) => {
                     onChange={() => handlePolicyChange(policy)}
                   />
                 }
-                label={policy}
+                label={<Typography variant="body1" component="span" sx={{ color: "#4F4F4F" }}>{policy}</Typography>}
               />
             </div>
           ))}
         </Grid>
         <Grid item xs={6}>
-          <h3>SDGs</h3>
+          <Typography variant="h6" component="h3" sx={{ color: "#008000", fontWeight: "bold", marginTop: 2 }}>
+            SDGs
+          </Typography>
           {["SDG 1", "SDG 2", "SDG 3"].map((sdg) => (
             <div key={sdg}>
               <FormControlLabel
@@ -118,43 +132,47 @@ const Landing: React.FC<LandingProps> = ({ projects }) => {
                     onChange={() => handleSdgChange(sdg)}
                   />
                 }
-                label={sdg}
+                label={<Typography variant="body1" component="span" sx={{ color: "#4F4F4F" }}>{sdg}</Typography>}
               />
             </div>
           ))}
         </Grid>
         <Grid item xs={12}>
-          <h2>Projects</h2>
+          <Typography variant="h4" component="h2" sx={{ color: "#008000", fontWeight: "bold", marginTop: 2 }}>
+            Projects
+          </Typography>
           {filteredProjects.length === 0 ? (
-            <Typography variant="h5">No projects found</Typography>
+            <Typography variant="h5" sx={{ color: "#4F4F4F", marginTop: 2 }}>No projects found</Typography>
           ) : (
             filteredProjects.map((project) => (
-              <Card key={project.id}>
+              <Card key={project.id} sx={{ marginTop: 2 }}>
                 <CardContent>
-                  <Typography variant="h5" component="h2">
+                  <Typography variant="h5" component="h3" sx={{ fontWeight: "bold", color: "#008000" }}>
                     {project.name}
                   </Typography>
-                  <Typography variant="body2" component="p">
+                  <Typography variant="body1" component="p" sx={{ color: "#4F4F4F", marginTop: 1 }}>
                     {project.description}
                   </Typography>
-                  <Box>
+                  <Box sx={{ marginTop: 1 }}>
                     {project.policies.map((policy) => (
-                      <Chip key={policy} label={policy} style={{ marginRight: 5, marginBottom: 5 }} />
+                      <Chip key={policy} label={policy} style={{ marginRight: 5, marginBottom: 5, backgroundColor: "#F4F4F4", color: "#4F4F4F", fontWeight: "bold" }} />
                     ))}
                   </Box>
-                  <Box>
+                  <Box sx={{ marginTop: 1 }}>
                     {project.sdgs.map((sdg) => (
-                      <Chip key={sdg} label={sdg} style={{ marginRight: 5, marginBottom: 5 }} />
-                    ))}
-                  </Box>
-                </CardContent>
-              </Card>
-            ))
-          )}
+                      <Chip key={sdg} label={sdg} style={{ marginRight: 5, marginBottom: 5, backgroundColor: "#F4F4F4", color: "#4F4F4F", fontWeight: "bold" }} />
+                      ))}
+                    </Box>
+                  </CardContent>
+                </Card>
+              ))
+            )}
+          </Grid>
         </Grid>
-      </Grid>
-    </div>
-  );
+      </div>
+    );
+  
+
   
 };
 

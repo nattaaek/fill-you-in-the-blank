@@ -19,6 +19,14 @@
     },
     "plugins": ["react", "jest"],
     "rules": {
-        "no-underscore-dangle": 0
+        "no-underscore-dangle": 0,
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "always",
+                "jsx": "always"
+            }
+        ]
     }
 }
