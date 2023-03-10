@@ -1,9 +1,14 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
-  test:
+  build-and-deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -14,19 +19,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
-        run: npm ci
+        run: yarn
       - name: Run tests
-        run: npm test
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [test]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Login to Heroku
+        run: yarn test
+      - name: Build and deploy
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: your-heroku-app-name
-      - name: Deploy to Heroku
-        run: git push https://git.heroku.com/your-heroku-app-name.git HEAD:main
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "your-heroku-app-name"
+          heroku_email: "your-heroku-email"
