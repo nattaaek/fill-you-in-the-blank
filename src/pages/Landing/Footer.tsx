@@ -7,7 +7,7 @@ const Footer = () => {
         backgroundColor: "#4caf50",
         color: "#ffffff",
         padding: theme.spacing(4, 0),
-    }}>
+    }} data-testid="footer">
       <Box maxWidth="lg" mx="auto" sx={{
         display: "flex",
         justifyContent: "space-between",

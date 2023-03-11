@@ -16,7 +16,7 @@ const UpcomingEvents = ({ events }: UpcomingEventsProps) => {
     <Box sx={{
         backgroundColor: "#f5f5f5",
         padding: theme.spacing(8, 0),
-    }}>
+    }} data-testid="upcoming-events">
       <Typography variant="h4" sx={{
             fontWeight: "bold",
             marginBottom: theme.spacing(4),
@@ -33,7 +33,7 @@ const UpcomingEvents = ({ events }: UpcomingEventsProps) => {
                 flexDirection: "column",
                 justifyContent: "space-between",
             }}>
-              <CardContent>
+              <CardContent data-testid="card-content">
                 <Typography variant="subtitle1" sx={{
                     backgroundColor: "#4caf50",
                     color: "#ffffff",

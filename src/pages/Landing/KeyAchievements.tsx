@@ -17,7 +17,7 @@ const KeyAchievements = ({ achievements }: KeyAchievementsProps) => {
     <Box sx={{
         backgroundColor: "#f5f5f5",
         padding: theme.spacing(8, 0),
-    }}>
+    }} data-testid="key-achievements">
       <Typography variant="h4" sx={{
             fontWeight: "bold",
             marginBottom: theme.spacing(4),
@@ -28,7 +28,7 @@ const KeyAchievements = ({ achievements }: KeyAchievementsProps) => {
       <Grid container spacing={4}>
         {achievements.map((achievement, index) => (
           <Grid item xs={12} md={4} key={index}>
-            <Box sx={{
+            <Box role="article" sx={{
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",

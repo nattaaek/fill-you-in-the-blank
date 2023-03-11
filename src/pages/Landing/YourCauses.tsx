@@ -16,7 +16,7 @@ const YourCauses = ({ causes }: YourCausesProps) => {
     <Box sx={{
         backgroundColor: "#f5f5f5",
         padding: theme.spacing(8, 0),
-    }}>
+    }} data-testid="your-causes">
       <Typography variant="h4" align="center" sx={{
             fontWeight: "bold",
             marginBottom: theme.spacing(4),
@@ -33,7 +33,7 @@ const YourCauses = ({ causes }: YourCausesProps) => {
                 borderRadius: theme.spacing(2),
                 boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
                 height: "100%",
-            }}>
+            }} data-testid="cause-item">
                 <Box sx={{
                     width: "100%",
                     marginBottom: theme.spacing(2),
@@ -53,7 +53,7 @@ const YourCauses = ({ causes }: YourCausesProps) => {
               <Typography variant="subtitle1" sx={{
                     color: "#666666",
                     marginBottom: theme.spacing(2),
-              }}>
+              }} data-testid="cause-subtitle">
                 {cause.subtitle}
               </Typography>
               <Box display="flex" justifyContent="center">

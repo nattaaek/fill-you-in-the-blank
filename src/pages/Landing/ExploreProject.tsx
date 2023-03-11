@@ -33,7 +33,7 @@ const ExploreProject = ({ projects }: ExploreProjectProps) => {
     <Box sx={{
         backgroundColor: "#f5f5f5",
         padding: theme.spacing(8, 0),
-    }}>
+    }} data-testid="explore-project">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Typography variant="h4" sx={{
                 fontWeight: "bold",
@@ -67,7 +67,7 @@ const ExploreProject = ({ projects }: ExploreProjectProps) => {
       <Grid container spacing={4}>
         {filteredProjects.slice(0, 3).map((project, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Box sx={{
+            <Box role="article" sx={{
                 backgroundColor: "#ffffff",
                 padding: theme.spacing(4),
                 borderRadius: theme.spacing(2),

@@ -29,7 +29,8 @@ const projects = [
 const ProjectCarousel = () => {
 
   const renderProjects = () => {
-    return projects.map((project) => (
+    return <Box data-testid="project-carousel">
+    {projects.map((project) => (
       <Box key={project.id} sx={{
         display: "flex",
         flexDirection: "column",
@@ -73,7 +74,8 @@ const ProjectCarousel = () => {
           ))}
         </Box>
       </Box>
-    ));
+    ))}
+    </Box>
   };
 
   return (
