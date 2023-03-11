@@ -1,8 +1,8 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from './common/theme/theme';
-import Landing from './pages/Landing/Landing'
 import { Auth0Provider } from "@auth0/auth0-react";
-import dotenv from "dotenv";
+import { RouterProvider } from 'react-router-dom';
+import router from './router/router';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           redirect_uri: window.location.origin
         }}
       >
-      <Landing />
+        <RouterProvider router={router} />
       </Auth0Provider>
     </ThemeProvider>
   )

@@ -1,7 +1,10 @@
 import { AppBar, Toolbar, Box } from "@mui/material";
 import MenuItem from "../MenuItem/MenuItem";
+import logo from '../../../assets/logo.webp'
+import { Link, Outlet, redirect, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  let navigate = useNavigate();
   return (
     <Box>
     <AppBar position="static" sx={{
@@ -9,40 +12,32 @@ const Header = () => {
       color: "#000000",
       boxShadow: "none",
       position: "fixed",
+      top: 0,
       zIndex: 1000,
     }}>
       <Toolbar>
         <Box display="flex" flexGrow={1} alignItems="center">
+          <Link to="/">
           <img
-            width={200}
-            src="/logo.png"
+            width={100}
+            src={logo}
             alt="Logo"
           />
+          </Link>
         </Box>
 
         <Box display="flex" alignItems="center">
-          <MenuItem label="ABOUT" />
-          <MenuItem label="PROJECTS" />
-          <MenuItem label="WIKIBANGKOK" />
-          <MenuItem label="VOLUNTEER" />
+          <MenuItem label="ABOUT" handleClick={() => navigate('/about')} />
+          <MenuItem label="PROJECTS" handleClick={() => navigate('/project')}/>
+          <MenuItem label="WIKIBANGKOK" externalLink={true} externalLinkUrl={"https://bangkok.source.in.th/wiki/Main_Page"}/>
+          <MenuItem label="VOLUNTEER" handleClick={() => navigate('/volunteer')} />
           <MenuItem label="SEARCH" />
           <MenuItem label="EN-US" />
         </Box>
       </Toolbar>
     </AppBar>
 
-    <Box sx={{
-          backgroundImage: `url('https://dummyimage.com/1240x960/000/fff')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "calc(100vh)", // subtract the height of the app bar
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          position: "relative",
-    }}>
-
-    </Box>
+    <Outlet />
     </Box>
   );
 };

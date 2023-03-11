@@ -1,6 +1,5 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
-import Menu from "../../common/components/Header/Header";
 import ExploreProject from "./ExploreProject";
 import Footer from "./Footer";
 import KeyAchievements from "./KeyAchievements";
@@ -149,8 +148,19 @@ const Landing: React.FC = () => {
 
   return (
     <div>
-      <Menu />
       <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Box sx={{
+                backgroundImage: `url('https://dummyimage.com/1240x960/000/fff')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                height: "calc(100vh)", // subtract the height of the app bar
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "relative",
+          }} />
+        </Grid>
         <Grid item xs={12}>
           <ProjectCarousel />
         </Grid>
