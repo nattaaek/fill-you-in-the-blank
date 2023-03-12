@@ -4,12 +4,14 @@ import MenuItem from "../MenuItem/MenuItem";
 import logo from '../../../assets/logo.webp'
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import i18next from "i18next";
+import { useAuth0 } from "@auth0/auth0-react";
 
 type SupportedLocales = "en" | "th";
 
 const Header = (): JSX.Element => {
   const navigate = useNavigate();
   const [locale, setLocale] = useState<SupportedLocales>('en');
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <Box>
@@ -37,7 +39,7 @@ const Header = (): JSX.Element => {
           <MenuItem label="PROJECTS" handleClick={() => { navigate('/project'); }}/>
           <MenuItem label="WIKIBANGKOK" externalLink={true} externalLinkUrl={"https://bangkok.source.in.th/wiki/Main_Page"}/>
           <MenuItem label="VOLUNTEER" handleClick={() => { navigate('/volunteer'); }} />
-          <MenuItem label="SEARCH" />
+          <MenuItem label="LOGIN" handleClick={() => { void loginWithRedirect() }} />
           <Autocomplete
             options={["en", "th"]}
             style={{ width: 300 }}

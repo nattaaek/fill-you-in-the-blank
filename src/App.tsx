@@ -12,8 +12,8 @@ const App = (): JSX.Element => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Auth0Provider
-          domain={''}
-          clientId={''}
+          domain={import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN}
+          clientId={import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID}
           authorizationParams={{
             redirect_uri: window.location.origin
           }}
