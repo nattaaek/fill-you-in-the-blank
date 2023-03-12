@@ -25,7 +25,7 @@ describe('Header', () => {
     expect(wikiBangkokItem).toBeInTheDocument();
     const volunteerItem = screen.getByText('VOLUNTEER');
     expect(volunteerItem).toBeInTheDocument();
-    const searchItem = screen.getByText('SEARCH');
+    const searchItem = screen.getByText('LOGIN');
     expect(searchItem).toBeInTheDocument();
   });
 });
