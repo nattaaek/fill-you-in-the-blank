@@ -26,7 +26,8 @@ jobs:
         run: yarn test
   update_changelog:
     runs-on: ubuntu-latest
-    needs: build
+    permissions:
+      contents: write
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Changelog Updater
