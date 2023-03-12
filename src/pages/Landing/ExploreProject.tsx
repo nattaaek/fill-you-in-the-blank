@@ -14,16 +14,16 @@ interface ExploreProjectProps {
   projects: Project[];
 }
 
-const ExploreProject = ({ projects }: ExploreProjectProps) => {
+const ExploreProject = ({ projects }: ExploreProjectProps): JSX.Element => {
   const [filter, setFilter] = useState("");
 
   const handleFilterChange = (
     event: React.ChangeEvent<{ value: unknown }>
-  ) => {
+  ): void => {
     setFilter(event.target.value as string);
   };
 
-  const filteredProjects = filter
+  const filteredProjects = (filter.length > 0)
     ? projects.filter(
         (project) => project.sdg === filter || project.policy === filter
       )

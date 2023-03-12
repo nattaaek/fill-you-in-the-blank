@@ -1,5 +1,6 @@
-import { makeStyles, Box, Typography, Grid, Button } from "@mui/material";
+import { Box, Typography, Grid, Button } from "@mui/material";
 import theme from "../../common/theme/theme";
+import { useTranslation } from "react-i18next";
 
 interface Cause {
   title: string;
@@ -11,7 +12,8 @@ interface YourCausesProps {
   causes: Cause[];
 }
 
-const YourCauses = ({ causes }: YourCausesProps) => {
+const YourCauses = ({ causes }: YourCausesProps): JSX.Element => {
+  const { t } = useTranslation();
   return (
     <Box sx={{
         backgroundColor: "#f5f5f5",
@@ -66,7 +68,7 @@ const YourCauses = ({ causes }: YourCausesProps) => {
                     "&:hover": {
                         backgroundColor: "#388e3c",
                     },
-                }}>Join Now</Button>
+                }}>{ t('JOIN_NOW') }</Button>
               </Box>
             </Box>
           </Grid>

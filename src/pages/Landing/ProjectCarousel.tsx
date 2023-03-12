@@ -26,11 +26,11 @@ const projects = [
   },
 ];
 
-const ProjectCarousel = () => {
+const ProjectCarousel = (): JSX.Element => {
 
-  const renderProjects = () => {
+  const renderProjects = (): JSX.Element[] => {
     return projects.map((project) => (
-      <Box key={project.id} sx={{
+      <Box key={project.name} sx={{
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

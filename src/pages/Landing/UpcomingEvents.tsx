@@ -1,4 +1,4 @@
-import { makeStyles, Box, Typography, Grid, Card, CardContent, Button } from "@mui/material";
+import { Box, Typography, Grid, Card, CardContent, Button } from "@mui/material";
 import theme from "../../common/theme/theme";
 
 interface Event {
@@ -11,7 +11,7 @@ interface UpcomingEventsProps {
   events: Event[];
 }
 
-const UpcomingEvents = ({ events }: UpcomingEventsProps) => {
+const UpcomingEvents = ({ events }: UpcomingEventsProps): JSX.Element => {
   return (
     <Box sx={{
         backgroundColor: "#f5f5f5",

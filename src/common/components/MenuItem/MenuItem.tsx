@@ -8,8 +8,8 @@ interface MenuItemProps {
   handleClick?: () => void;
 }
 
-const MenuItem = ({ label, externalLink, externalLinkUrl, handleClick }: MenuItemProps) => { 
-  if (externalLink && externalLinkUrl) {
+const MenuItem = ({ label, externalLink, externalLinkUrl, handleClick }: MenuItemProps): JSX.Element => { 
+  if ((externalLink ?? false) && (externalLinkUrl != null)) {
     return (
         <Button onClick={handleClick} color="inherit" sx={{
             margin: "0 10px",

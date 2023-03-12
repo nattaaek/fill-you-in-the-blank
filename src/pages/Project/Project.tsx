@@ -5,7 +5,7 @@ const ProjectPage: React.FC = () => {
   const title = 'Project Title';
   const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget justo et augue ultrices blandit. In hac habitasse platea dictumst. Duis eu massa sit amet elit elementum interdum.';
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     console.log('Click');
   };
 

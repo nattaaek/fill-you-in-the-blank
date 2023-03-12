@@ -27,7 +27,5 @@ describe('Header', () => {
     expect(volunteerItem).toBeInTheDocument();
     const searchItem = screen.getByText('SEARCH');
     expect(searchItem).toBeInTheDocument();
-    const languageItem = screen.getByText('EN-US');
-    expect(languageItem).toBeInTheDocument();
   });
 });

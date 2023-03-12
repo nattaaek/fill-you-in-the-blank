@@ -44,7 +44,7 @@ describe("YourCauses", () => {
 
   it("renders the join now buttons", () => {
     render(<YourCauses causes={mockCauses} />);
-    const joinButtons = screen.getAllByRole("button", { name: /join now/i });
+    const joinButtons = screen.getAllByRole("button", { name: /JOIN_NOW/i });
     expect(joinButtons.length).toEqual(mockCauses.length);
   });
 });

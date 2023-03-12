@@ -1,10 +1,16 @@
-import { AppBar, Toolbar, Box } from "@mui/material";
+import { type SyntheticEvent, useState } from "react";
+import { AppBar, Toolbar, Box, Autocomplete, TextField } from "@mui/material";
 import MenuItem from "../MenuItem/MenuItem";
 import logo from '../../../assets/logo.webp'
-import { Link, Outlet, redirect, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import i18next from "i18next";
 
-const Header = () => {
-  let navigate = useNavigate();
+type SupportedLocales = "en" | "th";
+
+const Header = (): JSX.Element => {
+  const navigate = useNavigate();
+  const [locale, setLocale] = useState<SupportedLocales>('en');
+
   return (
     <Box>
     <AppBar position="static" sx={{
@@ -27,12 +33,24 @@ const Header = () => {
         </Box>
 
         <Box display="flex" alignItems="center">
-          <MenuItem label="ABOUT" handleClick={() => navigate('/about')} />
-          <MenuItem label="PROJECTS" handleClick={() => navigate('/project')}/>
+          <MenuItem label="ABOUT" handleClick={() => { navigate('/about'); }} />
+          <MenuItem label="PROJECTS" handleClick={() => { navigate('/project'); }}/>
           <MenuItem label="WIKIBANGKOK" externalLink={true} externalLinkUrl={"https://bangkok.source.in.th/wiki/Main_Page"}/>
-          <MenuItem label="VOLUNTEER" handleClick={() => navigate('/volunteer')} />
+          <MenuItem label="VOLUNTEER" handleClick={() => { navigate('/volunteer'); }} />
           <MenuItem label="SEARCH" />
-          <MenuItem label="EN-US" />
+          <Autocomplete
+            options={["en", "th"]}
+            style={{ width: 300 }}
+            value={locale}
+            disableClearable
+            onChange={(_event: SyntheticEvent<Element, Event>, newValue: string) => {
+              setLocale(newValue as SupportedLocales);
+              void i18next.changeLanguage(newValue)
+            }}
+            renderInput={(params) => (
+              <TextField {...params} label="Locale" fullWidth />
+            )}
+          />
         </Box>
       </Toolbar>
     </AppBar>

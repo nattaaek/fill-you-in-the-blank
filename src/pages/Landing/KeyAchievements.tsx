@@ -12,7 +12,7 @@ interface KeyAchievementsProps {
   achievements: Achievement[];
 }
 
-const KeyAchievements = ({ achievements }: KeyAchievementsProps) => {
+const KeyAchievements = ({ achievements }: KeyAchievementsProps): JSX.Element => {
   return (
     <Box sx={{
         backgroundColor: "#f5f5f5",

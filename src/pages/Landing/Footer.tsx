@@ -1,7 +1,7 @@
 import { Box, Typography, Link } from "@mui/material";
 import theme from "../../common/theme/theme";
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <Box sx={{
         backgroundColor: "#4caf50",
