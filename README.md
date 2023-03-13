@@ -27,8 +27,12 @@
 To get started with the project, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/nattaaek/fill-you-in-the-blank.git`
-2. Install dependencies: `pnpm install`
-3. Run the application: `pnpm start`
+2. Install dependencies: `npm install -g yarn`
+3. Run Yarn: `yarn`
+4. Start yarn: `yarn start`
+
+
+ 
 
 ## Contributing
 
