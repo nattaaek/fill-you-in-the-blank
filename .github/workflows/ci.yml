@@ -32,3 +32,6 @@ jobs:
     steps:
       - name: Changelog Updater
         uses: stefanzweifel/changelog-updater-action@v1.6.2
+        with:
+          latest-version: ${{ github.event.release.tag_name }}
+          release-notes: ${{ github.event.release.body }}
