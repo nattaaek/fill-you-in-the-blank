@@ -24,14 +24,3 @@ jobs:
         run: yarn
       - name: Run tests
         run: yarn test
-  update_changelog:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Changelog Updater
-        uses: stefanzweifel/changelog-updater-action@v1.6.2
-        with:
-          latest-version: ${{ github.event.release.tag_name }}
-          release-notes: ${{ github.event.release.body }}
