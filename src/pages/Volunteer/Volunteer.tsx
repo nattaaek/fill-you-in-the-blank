@@ -11,16 +11,9 @@ const VolunteerPage: React.FC = () => {
 
   return (
     <Box sx={{ padding: 2 }}>
-      <Typography variant="h3" gutterBottom>
-        {title}
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        {description}
-      </Typography>
-      <Box sx={{ marginTop: 2 }}>
-        <Button variant="contained" onClick={handleClick}>
-          Click me
-        </Button>
+      <Box sx={{ padding: 2, display: "flex", flexDirection: "column", justifyContent: "center", height: "100vh", alignItems: "center" }}>
+        <h1>COMING SOON</h1>
+        <p>This website is under construction.</p>
       </Box>
     </Box>
   );
