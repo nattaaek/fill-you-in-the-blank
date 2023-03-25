@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Autocomplete, Box, TextField } from "@mui/material";
+import { Autocomplete, Box, Button, TextField } from "@mui/material";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import BangkokPolicyCategory from "../../common/constants/BangkokPolicyCategory";
@@ -26,44 +26,48 @@ const FilterBar: React.FC<FilterBarProps> = ({
   const translatedBangkokPolicyCategory = Object.values(BangkokPolicyCategory).map((policy) => t(policy)) 
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "row" }}>
-    <Autocomplete
+    <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+      <Autocomplete
         multiple
         id="policies-filter"
         options={translatedBangkokPolicyCategory}
         getOptionLabel={(option) => option}
         onChange={(_event, newInputValue) => {
-            setSelectedPolicies(newInputValue);
+          setSelectedPolicies(newInputValue);
         }}
-        sx={{ width: 300 }}
+        sx={{ width: 300, margin: "0 16px" }}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField
             {...params}
             label="Filter by Mayor Policy"
             placeholder="Policy"
+            variant="outlined"
           />
         )}
-    />
-    <Autocomplete
+      />
+      <Autocomplete
         multiple
         id="sdgs-filter"
         options={sdgs}
         getOptionLabel={(option) => option}
         onChange={(_event, newInputValue) => {
-            setSelectedSdgs(newInputValue);
+          setSelectedSdgs(newInputValue);
         }}
-        sx={{ width: 300 }}
+        sx={{ width: 300, margin: "0 16px" }}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField
             {...params}
             label="Filter by SDG"
             placeholder="SDG"
+            variant="outlined"
           />
         )}
       />
-      <button onClick={handleFilter}>Filter</button>
+      <Button variant="contained" onClick={handleFilter}>
+        Filter
+      </Button>
     </Box>
   );
 };

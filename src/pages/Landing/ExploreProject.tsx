@@ -28,12 +28,12 @@ const ExploreProject = ({ projects }: ExploreProjectProps): JSX.Element => {
   return (
     <Box sx={{
         backgroundColor: "#f5f5f5",
-        padding: theme.spacing(8, 0),
+        padding: theme.spacing(8, 8),
     }} data-testid="explore-project">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Typography variant="h4" sx={{
                 fontWeight: "bold",
-                marginBottom: theme.spacing(4),
+                marginBottom: theme.spacing(4)
         }}>
           Explore Projects
         </Typography>
@@ -52,15 +52,6 @@ const ExploreProject = ({ projects }: ExploreProjectProps): JSX.Element => {
                 boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
                 height: "100%",
             }}>
-            <Box sx={{
-                width: "100%",
-                marginBottom: theme.spacing(2),
-            }}>
-                <img
-                    src={project.image}              
-                    alt={project.title}
-                />
-            </Box>
               <Typography variant="h6" sx={{
                         fontWeight: "bold",
                         marginBottom: theme.spacing(1),

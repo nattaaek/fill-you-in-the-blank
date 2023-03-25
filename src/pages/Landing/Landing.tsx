@@ -32,22 +32,22 @@ const mockCauses = [
 
 const mockProjects = [
   {
-    title: "Clean Water for Everyone",
-    subtitle: "Join our mission to provide clean water to communities in need",
+    title: "Velocity Ventures",
+    subtitle: "An initiative that supports women entrepreneurs by offering resources, networking opportunities, and mentorship to help them grow their businesses and create economic opportunities.",
     image: "/clean-water.jpg",
-    sdg: "SDG6",
-    policy: "policy1",
+    sdg: "SDG 6, SDG 8",
+    policy: "เรียนดี, เศรษฐกิจดี",
   },
   {
-    title: "Plant Trees to Combat Climate Change",
-    subtitle: "Join us in planting trees to reduce carbon emissions and combat climate change",
+    title: "Stellar Solutions",
+    subtitle: "A community-based project that focuses on empowering individuals to overcome addiction by providing resources, support networks, and recovery programs.",
     image: "/plant-trees.jpg",
     sdg: "SDG13",
     policy: "policy2",
   },
   {
-    title: "Provide Education for Children in Need",
-    subtitle: "Help us provide education to children who don't have access to it",
+    title: "Quantum Quest",
+    subtitle: "A science education initiative that encourages youth to explore STEM fields by offering interactive learning experiences, workshops, and mentorship opportunities.",
     image: "/education.jpg",
     sdg: "SDG4",
     policy: "policy1",
