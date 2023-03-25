@@ -36,11 +36,23 @@ const StyledChip = styled(Chip)({
   marginBottom: "8px",
 });
 
+const VolunteerSection = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  marginBottom: "8px",
+});
+
+const StyledVolunteerCount = styled(Typography)({
+  marginRight: "8px",
+});
+
 interface ProjectCardProps {
   title: string;
   description: string;
   mayorPolicy: string[];
   sdg: string[];
+  currentVolunteers: number;
+  maxVolunteers: number;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -48,7 +60,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   mayorPolicy,
   sdg,
+  currentVolunteers,
+  maxVolunteers,
 }) => {
+  const volunteerCount = Math.floor(Math.random() * Math.min(100, 100));
+
   return (
     <StyledCard>
       <StyledCardContent>
@@ -72,6 +88,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <StyledChip label={goal} variant="outlined" key={goal} />
           ))}
         </div>
+        <VolunteerSection>
+          <Typography variant="caption" color="text.secondary" gutterBottom>
+            Current Volunteers:
+          </Typography>
+          <StyledVolunteerCount>{volunteerCount}</StyledVolunteerCount>
+          <Typography variant="caption" color="text.secondary" gutterBottom>
+            Maximum Volunteers:
+          </Typography>
+          <Typography variant="caption" color="text.secondary" gutterBottom>
+            {100}
+          </Typography>
+        </VolunteerSection>
       </CardContent>
     </StyledCard>
   );
