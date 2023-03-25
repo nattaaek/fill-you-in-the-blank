@@ -17,6 +17,10 @@ const KeyAchievements = ({ achievements }: KeyAchievementsProps): JSX.Element =>
     <Box sx={{
         backgroundColor: "#f5f5f5",
         padding: theme.spacing(8, 0),
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
     }} data-testid="key-achievements">
       <Typography variant="h4" sx={{
             fontWeight: "bold",
@@ -24,7 +28,8 @@ const KeyAchievements = ({ achievements }: KeyAchievementsProps): JSX.Element =>
       }}>
         Key Achievements
       </Typography>
-
+      <img width={100} src="/coming-soon.png" alt="coming-soon" />
+{/* 
       <Grid container spacing={4}>
         {achievements.map((achievement, index) => (
           <Grid item xs={12} md={4} key={index}>
@@ -58,7 +63,7 @@ const KeyAchievements = ({ achievements }: KeyAchievementsProps): JSX.Element =>
             </Box>
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </Box>
   );
 };

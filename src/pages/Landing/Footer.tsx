@@ -19,7 +19,7 @@ const Footer = (): JSX.Element => {
             fontSize: 32,
             marginRight: theme.spacing(2),
         }}>
-          Logo
+          <img width={100} src="/logo.webp" />
         </Typography>
         <Box>
           <Link href="#" sx={{

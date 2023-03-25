@@ -16,6 +16,10 @@ const UpcomingEvents = ({ events }: UpcomingEventsProps): JSX.Element => {
     <Box sx={{
         backgroundColor: "#f5f5f5",
         padding: theme.spacing(8, 0),
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
     }} data-testid="upcoming-events">
       <Typography variant="h4" sx={{
             fontWeight: "bold",
@@ -23,8 +27,9 @@ const UpcomingEvents = ({ events }: UpcomingEventsProps): JSX.Element => {
       }}>
         Upcoming Events
       </Typography>
+      <img width={100} src="/coming-soon.png" alt="coming-soon" />
 
-      <Grid container spacing={4}>
+      {/* <Grid container spacing={4}>
         {events.slice(0, 3).map((event, index) => (
           <Grid item xs={12} md={4} key={index}>
             <Card sx={{
@@ -84,7 +89,7 @@ const UpcomingEvents = ({ events }: UpcomingEventsProps): JSX.Element => {
         >
           View All Events
         </Button>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

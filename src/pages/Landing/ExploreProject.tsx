@@ -1,6 +1,7 @@
 import { Box, Typography, Select, MenuItem, Grid, Button } from "@mui/material";
 import React, { useState } from "react";
 import theme from "../../common/theme/theme";
+import { useNavigate } from 'react-router-dom';
 
 interface Project {
   title: string;
@@ -16,12 +17,7 @@ interface ExploreProjectProps {
 
 const ExploreProject = ({ projects }: ExploreProjectProps): JSX.Element => {
   const [filter, setFilter] = useState("");
-
-  const handleFilterChange = (
-    event: React.ChangeEvent<{ value: unknown }>
-  ): void => {
-    setFilter(event.target.value as string);
-  };
+  const navigate = useNavigate();
 
   const filteredProjects = (filter.length > 0)
     ? projects.filter(
@@ -42,25 +38,7 @@ const ExploreProject = ({ projects }: ExploreProjectProps): JSX.Element => {
           Explore Projects
         </Typography>
         <Box>
-          <Select
-            value={filter}
-            onChange={() => handleFilterChange}
-            displayEmpty
-            sx={{
-                minWidth: "200px",
-                marginRight: theme.spacing(2),
-            }}
-            inputProps={{ "aria-label": "Filter projects by SDG or policy" }}
-          >
-            <MenuItem value="" disabled>
-              Filter by SDG or policy
-            </MenuItem>
-            <MenuItem value="SDG1">SDG 1: No Poverty</MenuItem>
-            <MenuItem value="SDG2">SDG 2: Zero Hunger</MenuItem>
-            <MenuItem value="SDG3">SDG 3: Good Health and Well-being</MenuItem>
-            <MenuItem value="policy1">Bangkok Policy 1</MenuItem>
-            <MenuItem value="policy2">Bangkok Policy 2</MenuItem>
-          </Select>
+          <Button onClick={() => navigate("project")}>Explore more</Button>
         </Box>
       </Box>
 

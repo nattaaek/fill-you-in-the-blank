@@ -18,6 +18,10 @@ const YourCauses = ({ causes }: YourCausesProps): JSX.Element => {
     <Box sx={{
         backgroundColor: "#f5f5f5",
         padding: theme.spacing(8, 0),
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
     }} data-testid="your-causes">
       <Typography variant="h4" align="center" sx={{
             fontWeight: "bold",
@@ -25,7 +29,9 @@ const YourCauses = ({ causes }: YourCausesProps): JSX.Element => {
       }}>
         Your Causes
       </Typography>
+      <img width={100} src="/coming-soon.png" alt="coming-soon" />
 
+{/*  
       <Grid container spacing={4}>
         {causes.map((cause, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
@@ -73,7 +79,7 @@ const YourCauses = ({ causes }: YourCausesProps): JSX.Element => {
             </Box>
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </Box>
   );
 };
