@@ -160,11 +160,10 @@ const ProjectPage: React.FC = () => {
               <Box sx={{ m: 2 }}>
               <Link to={`/projects/${recommendedProject.id}`} style={{ textDecoration: "none" }}>
                 <ProjectCard
-                  title={recommendedProject.title}
-                  description={recommendedProject.description}
-                  mayorPolicy={recommendedProject.mayorPolicy}
-                  sdg={recommendedProject.sdg}
-                />
+                    title={recommendedProject.title}
+                    description={recommendedProject.description}
+                    mayorPolicy={recommendedProject.mayorPolicy}
+                    sdg={recommendedProject.sdg} currentVolunteers={0} maxVolunteers={0} />
                 </Link>
               </Box>
             </Box>
@@ -182,11 +181,10 @@ const ProjectPage: React.FC = () => {
               <Box key={project.id} sx={{ m: 2 }}>
                 <Link to={`/projects/${project.id}`} style={{ textDecoration: "none" }}>
                 <ProjectCard
-                  title={project.title}
-                  description={project.description}
-                  mayorPolicy={project.mayorPolicy}
-                  sdg={project.sdg}
-                />
+                    title={project.title}
+                    description={project.description}
+                    mayorPolicy={project.mayorPolicy}
+                    sdg={project.sdg} currentVolunteers={0} maxVolunteers={0} />
                 </Link>
               </Box>
             ))

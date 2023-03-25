@@ -14,12 +14,10 @@ import { useParams } from "react-router-dom";
 import { projectData } from "./Project";
 import ProjectCard from "./ProjectCard";
 
-interface ProjectDetailPageParams {
-  id: string;
-}
+
 
 const ProjectDetail: React.FC = () => {
-  const { id } = useParams<ProjectDetailPageParams>();
+  const { id } = useParams<string>();
 
   const project = projectData.find((project) => project.id === Number(id));
   const [showDialog, setShowDialog] = useState<boolean>(false);
@@ -44,11 +42,10 @@ const ProjectDetail: React.FC = () => {
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
           <ProjectCard
-            title={project.title}
-            description={project.description}
-            mayorPolicy={project.mayorPolicy}
-            sdg={project.sdg}
-          />
+                      title={project.title}
+                      description={project.description}
+                      mayorPolicy={project.mayorPolicy}
+                      sdg={project.sdg} currentVolunteers={0} maxVolunteers={0}          />
         </Box>
         <Typography variant="body1">{project.description}</Typography>
         <Box sx={{ mt: 2 }}>
