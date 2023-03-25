@@ -145,21 +145,19 @@ const mockAchievements = [
 
 
 const Landing: React.FC = () => {
-
   return (
     <div>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Box sx={{
-                backgroundImage: `url('https://dummyimage.com/1240x960/000/fff')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: "calc(100vh)", // subtract the height of the app bar
                 display: "flex",
+                width: "100%",
                 justifyContent: "center",
                 alignItems: "center",
                 position: "relative",
-          }} />
+          }} >
+            <img width="100%" src="/hero.jpg" alt="hero" />
+          </Box>
         </Grid>
         <Grid item xs={12}>
           <ProjectCarousel />
