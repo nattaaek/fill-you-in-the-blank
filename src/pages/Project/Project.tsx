@@ -3,6 +3,7 @@ import { Container, Box, Typography } from "@mui/material";
 import FilterBar from "./FilterBar";
 import ProjectCard from "./ProjectCard";
 import BangkokPolicyCategory from "../../common/constants/BangkokPolicyCategory";
+import { Link } from "react-router-dom";
 
 interface Project {
   id: number;
@@ -12,7 +13,7 @@ interface Project {
   sdg: string[];
 }
 
-const projectData: Project[] = [
+export const projectData: Project[] = [
   {
     id: 1,
     title: "Autism Run",
@@ -157,12 +158,14 @@ const ProjectPage: React.FC = () => {
             </Typography>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <Box sx={{ m: 2 }}>
+              <Link to={`/projects/${recommendedProject.id}`} style={{ textDecoration: "none" }}>
                 <ProjectCard
                   title={recommendedProject.title}
                   description={recommendedProject.description}
                   mayorPolicy={recommendedProject.mayorPolicy}
                   sdg={recommendedProject.sdg}
                 />
+                </Link>
               </Box>
             </Box>
           </Box>
@@ -177,12 +180,14 @@ const ProjectPage: React.FC = () => {
           {filteredProjects.length > 0 ? (
             filteredProjects.map((project) => (
               <Box key={project.id} sx={{ m: 2 }}>
+                <Link to={`/projects/${project.id}`} style={{ textDecoration: "none" }}>
                 <ProjectCard
                   title={project.title}
                   description={project.description}
                   mayorPolicy={project.mayorPolicy}
                   sdg={project.sdg}
                 />
+                </Link>
               </Box>
             ))
           ) : (
