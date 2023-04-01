@@ -22,7 +22,7 @@ const ProjectDetail: React.FC = () => {
   const project = projectData.find((project) => project.id === Number(id));
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
-  if (!project) {
+  if (project == null) {
     return <Typography>Project not found.</Typography>;
   }
 
